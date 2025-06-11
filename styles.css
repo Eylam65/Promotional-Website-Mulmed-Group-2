@@ -1008,6 +1008,10 @@ body {
     object-fit: cover;
 }
 
+#too-dark-cursed{
+    filter: brightness(2) contrast(1.0) grayscale(0.9);
+}
+
 /* Filter distortions */
 .filter-distortion-1 {
     filter: brightness(0.9) contrast(1.1) grayscale(0.4);

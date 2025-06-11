@@ -17,10 +17,10 @@ const sections = ['landing', 'synopsis', 'trailer', 'behind-scenes', 'cast-crew'
 // Cast members data
 const castMembers = [
     {
-        name: "Ryuu Stanley Tistogondo",
-        role: "Ryuu Stanley Tistogondo - Choreographer, Actor",
-        image: "Cast Pictures/RyuuHuman.jpg",
-        imageGhostMode: "Cast Pictures/RyuuHuman.jpg"
+        name: "Brandon Alvaro Haryanto",
+        role: "Brandon Alvaro Haryanto - Lead Director, Web Developer, Actor",
+        image: "Cast Pictures/BrandonHuman.jpg",
+        imageGhostMode: "Cast Pictures/BrandonEntity.jpg"
     },
     {
         name: "Ricky Atha Ajie Alvianto", 
@@ -29,19 +29,19 @@ const castMembers = [
         imageGhostMode: "Cast Pictures/RickyEntity.jpg"
     },
     {
+        name: "Ryuu Stanley Tistogondo",
+        role: "Ryuu Stanley Tistogondo - Choreographer, Actor",
+        image: "Cast Pictures/RyuuHuman.jpg",
+        imageGhostMode: "Cast Pictures/RyuuHuman.jpg"
+    },
+    {
         name: "Yohanes Wenanta",
         role: "Yohanes Wenanta - Choreographer, Actor", 
         image: "Cast Pictures/YohanesHuman.jpg",
         imageGhostMode: "Cast Pictures/YohanesEntity.jpg"
     },
     {
-        name: "Brandon Alvaro Haryanto",
-        role: "Brandon Alvaro Haryanto - Lead Director, Web Developer, Actor",
-        image: "Cast Pictures/BrandonHuman.jpg",
-        imageGhostMode: "Cast Pictures/BrandonEntity.jpg"
-    },
-    {
-        name: "Tandri Wibowo ",
+        name: "Tandri Wibowo",
         role: "Tandri Wibowo - Web Developer, Actor",
         image: "Cast Pictures/TandriHuman.jpg",
         imageGhostMode: "Cast Pictures/TandriHuman.jpg"
