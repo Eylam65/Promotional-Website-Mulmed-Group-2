@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Final Take - Official Movie Site</title>
+    <meta name="description" content="Watch it. Become it. The official website for the horror film The Final Take.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="main-container">
+        <!-- Screen flicker effect for low battery -->
+        <div id="screenFlicker" class="screen-flicker"></div>
+
+        <!-- Camera interface overlay -->
+        <div class="camera-viewport">
+            <!-- Viewfinder frame -->
+            <div class="viewfinder-frame">
+                <div class="viewfinder-border"></div>
+                
+                <!-- Corner brackets -->
+                <div class="corner-bracket top-left"></div>
+                <div class="corner-bracket top-right"></div>
+                <div class="corner-bracket bottom-left"></div>
+                <div class="corner-bracket bottom-right"></div>
+
+                <!-- Focus points -->
+                <div class="focus-circle-large"></div>
+                <div class="focus-circle-small"></div>
+                <div class="focus-line-horizontal"></div>
+                <div class="focus-line-vertical"></div>
+            </div>
+
+            <!-- Battery indicator in top left -->
+            <div id="batteryIndicator" class="battery-indicator">
+                <div class="battery-container">
+                    <div class="battery-nub"></div>
+                    <div id="batteryLevel" class="battery-level"></div>
+                </div>
+                <span id="batteryText" class="battery-text">8%</span>
+                <span id="lowBatteryWarning" class="low-battery-warning">LOW BATTERY</span>
+            </div>
+
+            <!-- Top display -->
+            <div class="top-display">
+                <div>
+                    <span id="memoryCardStatus">SD-HC</span>
+                </div>
+                <div>
+                    <span id="photoCounter">1/6</span>
+                </div>
+                <div id="recordingIndicator" class="recording-indicator" style="display: none;">
+                    <span class="recording-dot">●</span>
+                    <span id="recordingTime">00:00</span>
+                </div>
+            </div>
+
+            <!-- Date/time stamp -->
+            <div id="dateTime" class="date-time"></div>
+
+            <!-- Camera controls -->
+            <div class="camera-controls">
+                <button id="prevBtn" class="camera-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+
+                <button id="recordBtn" class="camera-button record-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 7l-7 5 7 5V7z"></path>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                    </svg>
+                </button>
+
+                <button id="nextBtn" class="camera-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Flash indicator -->
+            <div id="flashIndicator" class="flash-indicator">
+                <div class="flash-dot"></div>
+                <span class="flash-text">FLASH READY</span>
+            </div>
+
+            <!-- Delete button -->
+            <div class="delete-button">
+                <button class="delete-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2"></path>
+                    </svg>
+                    <span>DELETE</span>
+                </button>
+            </div>
+
+            <!-- Low battery screen effects -->
+            <div id="lowBatteryEffect" class="low-battery-effect"></div>
+
+            <!-- Grain overlay -->
+            <div class="grain-overlay"></div>
+
+            <!-- Scan line effect -->
+            <div class="scan-line"></div>
+
+            <!-- Transition effects -->
+            <div id="flashEffect" class="flash-effect"></div>
+            <div id="slideEffect" class="slide-effect"></div>
+
+            <!-- Content sections -->
+            <div id="contentContainer" class="camera-content-container">
+                <!-- Landing Section -->
+                <section id="landing" class="content-section active">
+                    <video id="backgroundVideo" autoplay loop muted playsinline class="background-video">
+                        <source src="/videos/static-background.mp4" type="video/mp4">
+                    </video>
+
+                    <!-- Slenderman entity -->
+                    <div id="slendermanEntity" class="entity-container">
+                        <div class="entity-figure">
+                            <img src="https://via.placeholder.com/200x500/000000/FFFFFF?text=Entity" alt="" class="entity-image">
+                        </div>
+                    </div>
+
+                    <div class="landing-content">
+                        <div class="glitch-container">
+                            <h1 id="glitchText" class="glitch-text">THE FINAL TAKE</h1>
+                        </div>
+
+                        <h2 class="subtitle">
+                            <span class="glitch-subtle">Watch it. Become it.</span>
+                        </h2>
+
+                        <div class="button-container">
+                            <button class="trailer-button">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21 5,3"></polygon>
+                                </svg>
+                                Watch Trailer
+                            </button>
+
+                            <button id="muteButton" class="mute-button">
+                                <svg id="muteIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"></polygon>
+                                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                                </svg>
+                                <span id="muteText">Enable Sound</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Synopsis Section -->
+                <section id="synopsis" class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">SYNOPSIS</h2>
+
+                        <div class="synopsis-text">
+                            <p>
+                                When a panicked call from their teammate <span class="highlight">Ryuu</span> leaves behind
+                                more questions than answers, a group of student filmmakers stumbles upon a strange camera abandoned in
+                                an old classroom.
+                            </p>
+                            <p>
+                                What begins as a routine project soon takes a disturbing turn when they discover unsettling images and
+                                unexplainable occurrences tied to the camera.
+                            </p>
+                            <p>
+                                As they attempt to carry on, the line between reality and something far darker begins to blur. Shadows
+                                move where they shouldn't, whispers echo in empty rooms—and one by one, things start to change.
+                            </p>
+                            <p class="final-line">
+                                Some cameras capture memories. This one captures
+                                <span class="highlight">something else entirely</span>.
+                            </p>
+                        </div>
+
+                        <div class="evidence-container">
+                            <img src="https://via.placeholder.com/800x450/000000/FFFFFF?text=Cursed+Camera" alt="The cursed camera from The Final Take" class="evidence-image">
+                            <div class="evidence-label">EVIDENCE #137: The Blackwood Camera</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Trailer Section -->
+                <section id="trailer" class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">TRAILER</h2>
+
+                        <div class="trailer-container">
+                            <div class="trailer-overlay">
+                                <button class="play-button">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="5,3 19,12 5,21 5,3"></polygon>
+                                    </svg>
+                                    Play Trailer
+                                </button>
+                            </div>
+                            <img src="https://via.placeholder.com/800x400/000000/FFFFFF?text=Trailer+Thumbnail" alt="The Final Take - Official Trailer" class="trailer-thumbnail">
+                            <div class="trailer-runtime">RUNTIME: 02:17</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Behind Scenes Section -->
+                <section id="behind-scenes" class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">BEHIND THE SCENES</h2>
+
+                        <div class="behind-scenes-grid">
+                            <div class="behind-scene-item">
+                                <img src="behindthescene1.jpg" alt="Behind the scenes - Makeup" class="behind-scene-image">
+                                <div class="behind-scene-overlay">
+                                    <p>Creating the Entity - Practical Effects</p>
+                                </div>
+                            </div>
+
+                            <div class="behind-scene-item">
+                                <img src="behindthescene2.jpeg" alt="Behind the scenes - Set design" class="behind-scene-image">
+                                <div class="behind-scene-overlay">
+                                    <p>Building Blackwood Studios - Set Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cast & Crew Section -->
+                <section id="cast-crew" class="content-section">
+                    <div class="section-content cast-crew-content">
+                        <h2 class="section-title">CAST & CREW</h2>
+
+                        <!-- Cast Grid -->
+                        <div class="cast-grid" id="castGrid">
+                            <!-- Cast members will be populated by JavaScript -->
+                        </div>
+
+                        <!-- Description Area -->
+                        <div class="production-notes">
+                            <h3 class="production-title">PRODUCTION NOTES</h3>
+                            
+                            <div class="production-content">
+                                <p>
+                                    <span class="production-highlight">Director's Vision:</span> Brandon Alvaro Haryanto brings his
+                                    unique perspective on psychological horror, blending traditional filmmaking techniques with modern
+                                    digital effects to create an unsettling atmosphere that lingers long after the credits roll.
+                                </p>
+                                
+                                <p>
+                                    <span class="production-highlight">The Entity:</span> The mysterious figure known only as
+                                    "The Entity" was brought to life through a combination of practical effects, motion capture, and the
+                                    haunting performance of Kenneth Andrew Lukita, whose identity remains shrouded in mystery.
+                                </p>
+                                
+                                <p>
+                                    <span class="production-highlight">Cinematography:</span> Lead cinematographer Ryuu Stanley Tistogondo
+                                    utilized vintage camera equipment and experimental techniques to achieve the film's distinctive visual
+                                    style, creating an authentic found-footage aesthetic that blurs the line between reality and
+                                    nightmare.
+                                </p>
+                                
+                                <p class="director-quote">
+                                    "We wanted to create something that felt real, something that could actually happen. The camera
+                                    becomes a character itself, and the audience becomes complicit in the horror." - Marcus Thompson,
+                                    Director
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Curse Timeline Section -->
+                <section id="curse-timeline" class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">CURSE TIMELINE</h2>
+
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1967</div>
+                                <h3 class="timeline-name">Thomas Reed</h3>
+                                <p class="timeline-description">Studio photographer. First known victim of the camera.</p>
+                                <div class="timeline-image-container">
+                                    <img src="https://via.placeholder.com/400x300/000000/FFFFFF?text=Thomas+Reed" alt="Thomas Reed" class="timeline-image filter-distortion-1">
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">1982</div>
+                                <h3 class="timeline-name">Maria Vasquez</h3>
+                                <p class="timeline-description">Film student. Found the camera in storage.</p>
+                                <div class="timeline-image-container">
+                                    <img src="https://via.placeholder.com/400x300/000000/FFFFFF?text=Maria+Vasquez" alt="Maria Vasquez" class="timeline-image filter-distortion-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Jump Scare -->
+    <div id="jumpScare" class="jump-scare" style="display: none;">
+    <div class="jump-scare-content">
+        <img src="Jumpscare.png" alt="Jump Scare" class="jump-scare-image">
+    </div>
+    </div>
+
+        <!-- Hidden button -->
+    <button id="doNotClickBtn" class="do-not-click-btn">DO NOT CLICK</button>
+
+        <!-- Sounds -->
+    <audio id="pageSound" src="cameranextsound.mp3" preload="auto"></audio>
+    <audio id="ambientSound" src="ambient.mp3" loop autoplay></audio>
+    <audio id="jumpscareSound" src="jumpscarenoise.mp3" preload="auto"></audio>
+    <script src="./script.js"></script>
+</body>
+</html>
