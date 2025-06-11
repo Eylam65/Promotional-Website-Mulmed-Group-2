@@ -18,37 +18,37 @@ const sections = ['landing', 'synopsis', 'trailer', 'behind-scenes', 'cast-crew'
 const castMembers = [
     {
         name: "Ryuu Stanley Tistogondo",
-        role: "Ryuu Stanley Tistogondo - Lead Cinematographer",
+        role: "Ryuu Stanley Tistogondo - Choreographer, Actor",
         image: "Cast Pictures/RyuuHuman.jpg",
         imageGhostMode: "Cast Pictures/RyuuHuman.jpg"
     },
     {
         name: "Ricky Atha Ajie Alvianto", 
-        role: "Ricky Atha Ajie Alvianto - Film Student",
+        role: "Ricky Atha Ajie Alvianto - Cinematographer, Film Editor, Actor",
         image: "Cast Pictures/RickyHuman.jpg",
         imageGhostMode: "Cast Pictures/RickyEntity.jpg"
     },
     {
         name: "Yohanes Wenanta",
-        role: "Yohanes Wenanta - Sound Engineer", 
+        role: "Yohanes Wenanta - Choreographer, Actor", 
         image: "Cast Pictures/YohanesHuman.jpg",
         imageGhostMode: "Cast Pictures/YohanesEntity.jpg"
     },
     {
         name: "Brandon Alvaro Haryanto",
-        role: "Brandon Alvaro Haryanto - Director",
+        role: "Brandon Alvaro Haryanto - Lead Director, Web Developer, Actor",
         image: "Cast Pictures/BrandonHuman.jpg",
         imageGhostMode: "Cast Pictures/BrandonEntity.jpg"
     },
     {
-        name: "Tandri Wibowo",
-        role: "Tandri Wibowo - Producer",
+        name: "Tandri Wibowo ",
+        role: "Tandri Wibowo - Web Developer, Actor",
         image: "Cast Pictures/TandriHuman.jpg",
         imageGhostMode: "Cast Pictures/TandriHuman.jpg"
     },
     {
         name: "The Entity",
-        role: "Kenneth Andrew Lukita - Unknown",
+        role: "Kenneth Andrew Lukita - Actor",
         image: "Cast Pictures/kennethHuman.jpg",
         imageGhostMode: "Cast Pictures/KennethEntitiy.jpeg"
     }
@@ -433,23 +433,7 @@ function populateCastGrid() {
         imageEl.alt = member.name;
         imageEl.className = 'cast-member-image';
 
-        imageEl.addEventListener('mouseenter', () => {
-            const shouldGlitch = Math.random() < 0.7; // 30% chance
-            if (shouldGlitch) {
-                imageEl.classList.add('glitch');
-
-                // Switch to ghost image
-                const originalSrc = imageEl.src;
-                imageEl.src = member.imageGhostMode;
-
-                setTimeout(() => {
-                    imageEl.src = member.image;
-                    imageEl.classList.remove('glitch');
-                }, 500 + Math.random() * 500); // glitch duration 0.5–1s
-            }
-        });
-
-
+        // Append image first
         castMemberEl.innerHTML = `
             <div class="cast-member-image-container">
                 <div class="cast-member-overlay"></div>
@@ -460,9 +444,40 @@ function populateCastGrid() {
                 ${index === 5 ? '<div class="entity-scan-line"></div>' : ''}
             </div>
         `;
-
         castMemberEl.querySelector('.cast-member-image-container').prepend(imageEl);
         castGrid.appendChild(castMemberEl);
+
+        // Auto-glitch only if the ghost image is different
+        if (member.image !== member.imageGhostMode) {
+            setInterval(() => {
+                const shouldGlitch = Math.random() < 0.75; // 30% chance every cycle
+                if (shouldGlitch) {
+                    imageEl.classList.add('glitch');
+                    imageEl.src = member.imageGhostMode;
+
+                    setTimeout(() => {
+                        imageEl.src = member.image;
+                        imageEl.classList.remove('glitch');
+                    }, 500 + Math.random() * 1000); // 0.5–1.5s glitch
+                }
+            }, 5000 + Math.random() * 5000); // every 5–10 seconds
+        }
+
+
+
+        // castMemberEl.innerHTML = `
+        //     <div class="cast-member-image-container">
+        //         <div class="cast-member-overlay"></div>
+        //         <div class="cast-member-info">
+        //             <h3 class="cast-member-name">${member.name}</h3>
+        //             <p class="cast-member-role">${member.role}</p>
+        //         </div>
+        //         ${index === 5 ? '<div class="entity-scan-line"></div>' : ''}
+        //     </div>
+        // `;
+
+        // castMemberEl.querySelector('.cast-member-image-container').prepend(imageEl);
+        // castGrid.appendChild(castMemberEl);
     });
 }
 
@@ -714,3 +729,27 @@ document.addEventListener('wheel', (e) => {
 //     console.error("Audio play failed:", error);
 //   });
 // });
+
+const playTrailerBtn = document.getElementById('playTrailerBtn');
+const trailerContainer = document.getElementById('trailerContainer');
+
+if (playTrailerBtn && trailerContainer) {
+    playTrailerBtn.addEventListener('click', () => {
+        trailerContainer.innerHTML = `
+            <iframe width="100%" height="100%" 
+                src="https://www.youtube.com/embed/GSK7PR6iheI?autoplay=1&rel=0&modestbranding=1&controls=1" 
+                title="The Final Take - Official Trailer" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        `;
+    });
+}
+
+const trailerHomeButton = document.getElementById('trailerHomeButton');
+if (trailerHomeButton) {
+    trailerHomeButton.addEventListener('click', () => {
+        window.open("https://youtu.be/GSK7PR6iheI", "_blank");
+    });
+}
