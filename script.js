@@ -775,9 +775,6 @@ if (playTrailerBtn && trailerContainer) {
 const trailerHomeButton = document.getElementById("trailerHomeButton");
 if (trailerHomeButton) {
   trailerHomeButton.addEventListener("click", () => {
-    window.open(
-      "https://drive.google.com/file/d/12jLZLOCon-6xxhoS6IrYyDw9RN9orkQv/view?usp=sharing",
-      "_blank"
-    );
+    window.open("https://youtu.be/A8RrjuTP6S4", "_blank");
   });
 }
